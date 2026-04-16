@@ -15,10 +15,11 @@ body {
 
 /* 3. HEADER: El encabezado principal */
 header {
-    background-color: #6b8f71; /* Verde medio */
+    background-color: #1a472a; /* Verde Slytherin Oscuro */
     color: white;
     text-align: center;
     padding: 40px 20px;
+    border-bottom: 4px solid #aaaaaa; /* Detalle Plata */
 }
 
 header h1 {
@@ -32,31 +33,44 @@ header h2 {
     opacity: 0.9;
 }
 
-/* 4. NAVEGACIÓN: Menú de enlaces */
+/* 4. NAVEGACIÓN: Menú de botones estilo Slytherin */
 nav {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 nav ul {
     list-style: none;
+    display: flex;
+    justify-content: center; /* Centra los botones */
+    gap: 20px;               /* Espacio entre botones */
+    padding: 0;
 }
 
 nav li {
-    display: inline;
-    margin: 0 15px;
+    display: inline-block;
 }
 
 nav a {
+    background-color: #2a623d; /* Verde medio */
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.1rem;
-    transition: 0.3s;
+    font-size: 1rem;
+    padding: 12px 25px;
+    border-radius: 30px;       /* Botones ovalados/minimalistas */
+    border: 2px solid #aaaaaa; /* Borde Plata */
+    transition: all 0.3s ease;
+    display: block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
+/* Efecto al pasar el mouse */
 nav a:hover {
-    color: #d1e0d1;
-    text-decoration: underline;
+    background-color: #1a472a; /* Oscurece al pasar el mouse */
+    color: #aaaaaa;            /* Texto pasa a Plata */
+    transform: translateY(-3px); /* Pequeño salto hacia arriba */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    text-decoration: none;     /* Quitamos el subrayado del hover anterior */
 }
 
 /* 5. CUERPO PRINCIPAL (MAIN) */
@@ -66,13 +80,13 @@ main {
     padding: 30px;
     background-color: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra suave */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* 6. LA BARRA DE TEXTO (Lo que sacamos del Header) */
+/* 6. LA BARRA DE TEXTO (Intro-text) */
 .intro-text {
     background-color: #f4f8f4;
-    border-left: 5px solid #6b8f71;
+    border-left: 5px solid #1a472a;
     padding: 20px;
     margin-bottom: 30px;
     text-align: center;
@@ -87,15 +101,17 @@ img {
     height: auto;
     margin: 0 auto;
     border-radius: 8px;
+    border: 1px solid #ddd;
 }
 
 /* 8. FOOTER: Pie de página */
 footer {
-    background-color: #6b8f71;
+    background-color: #1a472a;
     color: white;
     text-align: center;
     padding: 25px;
     margin-top: 50px;
+    border-top: 4px solid #aaaaaa;
 }
 
 footer p {
