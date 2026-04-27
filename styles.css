@@ -1,120 +1,216 @@
-/* 1. RESET: Limpiamos márgenes y rellenos por defecto */
+/* --- 1. CONFIGURACIÓN GLOBAL Y SCROLL SUAVE --- */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* 2. GENERAL: Colores base y tipografía */
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background-color: #eef3ee; /* Verde muy clarito */
-    color: #2f3e2f;            /* Verde oscuro para texto */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1a1a1a;
     line-height: 1.6;
+    overflow-x: hidden;
+
+    /* 1. Color de fondo base (blanco roto) */
+    background-color: #fcfcfc;
+
+    /* 2. El patrón de puntos */
+    background-image: radial-gradient(#1a472a 1px, transparent 1px);
+    background-size: 30px 30px;
+
+    /* 3. Un degradado radial muy sutil que nace del centro */
+    background-attachment: fixed;
 }
 
-/* 3. HEADER: El encabezado principal */
+.dot-navigation {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.dot-navigation a {
+    width: 10px;
+    height: 10px;
+    background-color: #aaaaaa;
+    border: 1px solid #1a1a1a;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot-navigation a:hover {
+    background-color: #1a472a;
+    transform: scale(1.5);
+}
+
+/* --- 3. HEADER --- */
 header {
-    background-color: #1a472a; /* Verde Slytherin Oscuro */
-    color: white;
+    background: linear-gradient(135deg, #1a472a 0%, #0d2616 100%);
+    color: #ffffff;
     text-align: center;
-    padding: 40px 20px;
-    border-bottom: 4px solid #aaaaaa; /* Detalle Plata */
+    padding: 80px 20px;
+    border-bottom: 2px solid #aaaaaa;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 5px;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    font-weight: 800;
 }
 
 header h2 {
-    font-weight: 300;
-    font-size: 1.2rem;
-    opacity: 0.9;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
-/* 4. NAVEGACIÓN: Menú de botones estilo Slytherin */
-nav {
-    margin-top: 25px;
+/* --- 4. NAVEGACIÓN Y BOTONES --- */
+nav { 
+    margin-top: 40px; 
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center; /* Centra los botones */
-    gap: 20px;               /* Espacio entre botones */
-    padding: 0;
-}
-
-nav li {
-    display: inline-block;
+nav ul { 
+    list-style: none; 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+    flex-wrap: wrap; 
 }
 
 nav a {
-    background-color: #2a623d; /* Verde medio */
-    color: white;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    padding: 12px 25px;
-    border-radius: 30px;       /* Botones ovalados/minimalistas */
-    border: 2px solid #aaaaaa; /* Borde Plata */
-    transition: all 0.3s ease;
-    display: block;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
 }
 
-/* Efecto al pasar el mouse */
-nav a:hover {
-    background-color: #1a472a; /* Oscurece al pasar el mouse */
-    color: #aaaaaa;            /* Texto pasa a Plata */
-    transform: translateY(-3px); /* Pequeño salto hacia arriba */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-    text-decoration: none;     /* Quitamos el subrayado del hover anterior */
+/* 4.1 Botones del Header (Transparentes / Vidrio) */
+header nav a {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid #aaaaaa;
+    backdrop-filter: blur(5px);
 }
 
-/* 5. CUERPO PRINCIPAL (MAIN) */
-main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
+header nav a:hover { 
+    background-color: #ffffff; 
+    color: #1a472a; 
+}
+
+/* 4.2 Botones del Main */
+main nav a {
+    background-color: #1a472a; 
+    color: #ffffff;
+    border: 2px solid #1a472a;
+    margin: 5px;
+}
+
+main nav a:hover {
     background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    color: #1a472a;
+    border-color: #1a472a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(26, 71, 42, 0.2);
 }
 
-/* 6. LA BARRA DE TEXTO (Intro-text) */
+/* --- 5. CUERPO Y CONTENIDO --- */
+main { 
+    max-width: 1000px; 
+    margin: 0 auto; 
+    padding: 60px 20px; 
+    text-align: center; 
+}
+
 .intro-text {
-    background-color: #f4f8f4;
-    border-left: 5px solid #1a472a;
-    padding: 20px;
-    margin-bottom: 30px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-left: 8px solid #1a472a;
+    padding: 35px;
+    margin-bottom: 40px;
+    box-shadow: 6px 6px 0px #aaaaaa;
     text-align: center;
-    font-style: italic;
-    border-radius: 4px;
 }
 
-/* 7. IMAGEN Y CONTENIDO VISUAL */
+/* Listas dentro del main */
+main ul {
+    list-style-position: inside;
+    display: inline-block;
+    text-align: left;
+    margin-top: 20px;
+}
+
 img {
     display: block;
     max-width: 100%;
     height: auto;
-    margin: 0 auto;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+    margin: 40px auto;
+    border: 1px solid #1a472a;
+    padding: 10px;
+    background: #fff;
+    border-radius: 4px;
 }
 
-/* 8. FOOTER: Pie de página */
+/* --- 6. FOOTER --- */
 footer {
-    background-color: #1a472a;
-    color: white;
+    background: #0d2616;
+    color: #aaaaaa;
     text-align: center;
-    padding: 25px;
-    margin-top: 50px;
-    border-top: 4px solid #aaaaaa;
+    padding: 60px 20px;
+    border-top: 4px solid #1a472a;
+    margin-top: 40px;
 }
 
 footer p {
-    font-size: 0.9rem;
-    margin: 5px 0;
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+}
+
+/* --- 7. RESPONSIVE --- */
+@media (max-width: 768px) {
+    .dot-navigation { 
+        display: none; 
+    }
+    
+    header {
+        padding: 60px 15px;
+    }
+
+    header h1 { 
+        font-size: 2.2rem; 
+    }
+    
+    nav ul { 
+        flex-direction: column; 
+        align-items: center; 
+    }
+    
+    nav li, nav a { 
+        width: 100%; 
+        max-width: 300px; 
+    }
+
+    main {
+        padding: 40px 15px;
+    }
+
+    .intro-text {
+        padding: 20px;
+    }
 }

@@ -4,38 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Mi sitio personal</title>
+    <title>Intereses - Martina Juarez</title>
 </head>
 <body>
-    <header>
-        <h1>Mi primer sitio</h1>
-        <h2>Intereses</h2>
+    <div class="dot-navigation">
+        <a href="#inicio" title="Inicio"></a>
+        <a href="#contenido" title="Intereses"></a>
+        <a href="#pie" title="Pie de página"></a>
+    </div>
+
+    <header id="inicio">
+        <h1>Intereses</h1>
+        <h2>Lo que me apasiona</h2>
         <nav>
             <ul>
-                <li>
-                    <a href="index.html">Volver al inicio</a> 
-                </li>
-                <li>
-                    <a href="contacto.html">Contacto</a>
-                </li>
+                <li><a href="index.html">Volver al inicio</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
     
-    <main>
-    <div class="intro-text">
-        <p>Me gustan mucho los videojuegos, salir a pasear o salir a comer. Te comparto más detalles:</p>
-    </div>
-    
-    <nav>
-        <ul>
-            <li><a href="juegos.html">Mis Juegos Favoritos</a></li>
-            <li><a href="salidas.html">Lugares para Salir que me Encantan</a></li>
-        </ul>
-    </nav>
+    <main id="contenido">
+        <div class="intro-text">
+            <p>Me gustan mucho los videojuegos, salir a pasear o salir a comer. Te comparto más detalles:</p>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="juegos.html">Mis Juegos Favoritos</a></li>
+                <li><a href="salidas.html">Lugares para Salir</a></li>
+            </ul>
+        </nav>
     </main>
     
-    <footer>
+    <footer id="pie">
         <p>Todos los derechos reservados</p>
         <p>Universidad Argentina de la Empresa - 2026</p>
     </footer>
