@@ -1,216 +1,264 @@
-/* --- 1. CONFIGURACIÓN GLOBAL Y SCROLL SUAVE --- */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: #1a1a1a;
-    line-height: 1.6;
-    overflow-x: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: #fcfcfc;
+  background-image: radial-gradient(#1a472a 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-attachment: fixed;
+}
 
-    /* 1. Color de fondo base (blanco roto) */
-    background-color: #fcfcfc;
-
-    /* 2. El patrón de puntos */
-    background-image: radial-gradient(#1a472a 1px, transparent 1px);
-    background-size: 30px 30px;
-
-    /* 3. Un degradado radial muy sutil que nace del centro */
-    background-attachment: fixed;
+ul {
+  list-style: none;
 }
 
 .dot-navigation {
-    position: fixed;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 1000;
+  display: none;
 }
 
-.dot-navigation a {
-    width: 10px;
-    height: 10px;
-    background-color: #aaaaaa;
-    border: 1px solid #1a1a1a;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.dot-navigation a:hover {
-    background-color: #1a472a;
-    transform: scale(1.5);
-}
-
-/* --- 3. HEADER --- */
 header {
-    background: linear-gradient(135deg, #1a472a 0%, #0d2616 100%);
-    color: #ffffff;
-    text-align: center;
-    padding: 80px 20px;
-    border-bottom: 2px solid #aaaaaa;
+  background: linear-gradient(135deg, #1a472a 0%, #0d2616 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: 80px 20px;
+  border-bottom: none;
 }
 
 header h1 {
-    font-size: 3.5rem;
-    text-transform: uppercase;
-    letter-spacing: -2px;
-    font-weight: 800;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  font-weight: 800;
 }
 
 header h2 {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 0.9rem;
-    color: #aaaaaa;
-    margin-top: 15px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  color: #aaaaaa;
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
-/* --- 4. NAVEGACIÓN Y BOTONES --- */
-nav { 
-    margin-top: 40px; 
+nav {
+  margin-top: 40px;
 }
 
-nav ul { 
-    list-style: none; 
-    display: flex; 
-    justify-content: center; 
-    gap: 15px; 
-    flex-wrap: wrap; 
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 nav a {
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 12px 28px;
-    border-radius: 50px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-block;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 12px 28px;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid #aaaaaa;
+  backdrop-filter: blur(5px);
 }
 
-/* 4.1 Botones del Header (Transparentes / Vidrio) */
-header nav a {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    border: 1px solid #aaaaaa;
-    backdrop-filter: blur(5px);
+nav a:hover {
+  background-color: #ffffff;
+  color: #1a472a;
+  border-color: #ffffff;
 }
 
-header nav a:hover { 
-    background-color: #ffffff; 
-    color: #1a472a; 
+nav a.activo {
+  background-color: #ffffff;
+  color: #1a472a;
+  border-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
 }
 
-/* 4.2 Botones del Main */
-main nav a {
-    background-color: #1a472a; 
-    color: #ffffff;
-    border: 2px solid #1a472a;
-    margin: 5px;
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  text-align: center;
 }
 
-main nav a:hover {
-    background-color: #ffffff;
-    color: #1a472a;
-    border-color: #1a472a;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(26, 71, 42, 0.2);
+.perfil-bloque {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-top: 8px solid #1a472a;
+  padding: 50px 40px;
+  border-radius: 16px;
+  box-shadow: 6px 6px 0px #aaaaaa;
+  width: 100%;
+  margin: 0 auto;
 }
 
-/* --- 5. CUERPO Y CONTENIDO --- */
-main { 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    padding: 60px 20px; 
-    text-align: center; 
+.perfil-titulo {
+  font-size: 2.2rem;
+  color: #1a472a;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.perfil-intro {
+  font-size: 1.15rem;
+  color: #2d3748;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+  font-weight: 400;
+}
+
+.perfil-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  width: 100%;
+}
+
+.perfil-tarjeta {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-top: 6px solid #1a472a;
+  border-radius: 12px;
+  padding: 30px 24px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 280px;
+  box-shadow: 4px 4px 0px #aaaaaa;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.perfil-tarjeta h3 {
+  font-size: 1.15rem;
+  color: #1a472a;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.perfil-tarjeta p {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  line-height: 1.6;
 }
 
 .intro-text {
-    background-color: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-left: 8px solid #1a472a;
-    padding: 35px;
-    margin-bottom: 40px;
-    box-shadow: 6px 6px 0px #aaaaaa;
-    text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-left: 8px solid #1a472a;
+  padding: 35px;
+  margin-bottom: 40px;
+  box-shadow: 6px 6px 0px #aaaaaa;
+  text-align: center;
 }
 
-/* Listas dentro del main */
 main ul {
-    list-style-position: inside;
-    display: inline-block;
-    text-align: left;
-    margin-top: 20px;
+  list-style-position: inside;
+  display: inline-block;
+  text-align: left;
+  margin-top: 20px;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 40px auto;
-    border: 1px solid #1a472a;
-    padding: 10px;
-    background: #fff;
-    border-radius: 4px;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 40px auto;
+  border: 1px solid #1a472a;
+  padding: 10px;
+  background: #fff;
+  border-radius: 4px;
 }
 
-/* --- 6. FOOTER --- */
 footer {
-    background: #0d2616;
-    color: #aaaaaa;
-    text-align: center;
-    padding: 60px 20px;
-    border-top: 4px solid #1a472a;
-    margin-top: 40px;
+  background: #0d2616;
+  color: #aaaaaa;
+  text-align: center;
+  padding: 60px 20px;
+  border-top: none;
+  margin-top: 40px;
 }
 
 footer p {
-    font-size: 0.8rem;
-    margin-bottom: 5px;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
 }
 
-/* --- 7. RESPONSIVE --- */
 @media (max-width: 768px) {
-    .dot-navigation { 
-        display: none; 
-    }
-    
-    header {
-        padding: 60px 15px;
-    }
+  header {
+    padding: 60px 15px;
+  }
 
-    header h1 { 
-        font-size: 2.2rem; 
-    }
-    
-    nav ul { 
-        flex-direction: column; 
-        align-items: center; 
-    }
-    
-    nav li, nav a { 
-        width: 100%; 
-        max-width: 300px; 
-    }
+  header h1 {
+    font-size: 2.2rem;
+  }
 
-    main {
-        padding: 40px 15px;
-    }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .intro-text {
-        padding: 20px;
-    }
+  nav li, nav a {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  main {
+    padding: 40px 15px;
+  }
+
+  .perfil-bloque {
+    padding: 30px 20px;
+  }
+
+  .perfil-titulo {
+    font-size: 1.8rem;
+  }
+
+  .perfil-intro {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .intro-text {
+    padding: 20px;
+  }
+
+  .perfil-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .perfil-tarjeta {
+    max-width: 100%;
+    width: 100%;
+  }
 }
